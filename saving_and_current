@@ -1,0 +1,12 @@
+
+insert into saving values(00987654321,8);
+insert into saving values(00987654320,10);
+insert into saving values(00987654323,10);
+insert into saving values(00987654324,9);
+insert into saving values(00987654325,9);
+
+insert into current1 values(00987654321,7);
+insert into current1 values(00987654320,8);
+insert into current1 values(00987654323,8);
+insert into current1 values(00987654324,9);
+insert into current1 values(00987654325,9);
