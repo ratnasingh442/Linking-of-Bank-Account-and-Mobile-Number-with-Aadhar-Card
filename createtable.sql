@@ -1,0 +1,15 @@
+create table mobile(mobileno number(15) primary key, simcompany char(15),state char(15));
+create table aadhar(aadharno number(15) primary key,firstname char(15),lastname char(15), gender char(15),address char(15),dob date,age number(15));
+create table mobilelink(mobileno number(15) references mobile(mobileno),aadharno number(15) references aadhar(aadharno),primary key(mobileno,aadharno));
+create table bank(bankname char(15) primary key);
+create table branchadd(branchname char(15) primary key,address char(15));
+create table bankbranch(ifsccode char(15) primary key,branchname char(15) references branchadd(branchname));
+create table branches(ifsccode char(15) references bankbranch(ifsccode),bankname char(15) references bank(bankname),primary key(ifsccode,bankname));
+create table account(accountno number(15) primary key,accholder char(15),balance number(15));
+create table accountlink(accountno number(15) references account(accountno),aadharno number(15) references aadhar(aadharno),primary key(accountno,aadharno));
+create table accounts(ifsccode char(15) references bankbranch(ifsccode),accountno number(15) references account(accountno), primary key(ifsccode,accountno));
+create table saving(aacountno number(15) primary key,interestrate number(15));
+create table vote(aadharno number(15) UNIQUE references aadhar(aadharno),votingstatus number(2));
+create table current1(aacountno number(15) primary key,currentrate number(15));
+create table familydetails(aadharno number(15) primary key,familyincome number(15),totalmembers number(15),mainoccupation char(15));
+create table propertydetails(aadharno number(15) references familydetails(aadharno),property char(15));
